@@ -41,20 +41,13 @@ window.renderStatistics = function (ctx, players, times) {
   for (var i = 0; i < players.length; i++) {
     var randomColor = Math.random() * (100 - 0) + 0;
     if (players[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-      ctx.fillText(players[i], (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP, TEXT_WIDTH);
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-      ctx.fillRect((CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP * 3, BAR_WIDTH, ((barHeight * times[i]) / maxTime) * (-1));
-      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-      ctx.strokeText(Math.round(times[i]), (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, (CLOUD_HEIGHT - GAP) + ((barHeight * times[i]) / maxTime) * (-1) - GAP * 3, TEXT_WIDTH);
-
     } else {
-      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-      ctx.fillText(players[i], (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP, TEXT_WIDTH);
       ctx.fillStyle = 'hsl(240,' + randomColor + '%, 50%)';
-      ctx.fillRect((CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP * 3, BAR_WIDTH, ((barHeight * times[i]) / maxTime) * (-1));
-      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-      ctx.strokeText(Math.round(times[i]), (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, (CLOUD_HEIGHT - GAP) + ((barHeight * times[i]) / maxTime) * (-1) - GAP * 3, TEXT_WIDTH);
     }
+    ctx.fillRect((CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP * 3, BAR_WIDTH, ((barHeight * times[i]) / maxTime) * (-1));
+    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    ctx.fillText(players[i], (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, CLOUD_HEIGHT - GAP, TEXT_WIDTH);
+    ctx.strokeText(Math.round(times[i]), (CLOUD_X + GAP * 4) + (TEXT_WIDTH + BAR_WIDTH) * i, (CLOUD_HEIGHT - GAP) + ((barHeight * times[i]) / maxTime) * (-1) - GAP * 3, TEXT_WIDTH);
   }
 };

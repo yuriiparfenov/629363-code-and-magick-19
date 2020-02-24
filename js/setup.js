@@ -3,12 +3,12 @@ var WIZARD_COUNT = 4;
 var TAB_ENTER = 'Enter';
 var TAB_ESC = 'Escape';
 
-var showElement = function (Element) {
-  Element.classList.remove('hidden');
+var showElement = function (element) {
+  element.classList.remove('hidden');
 };
 
-var hideElement = function (Element) {
-  Element.classList.add('hidden');
+var hideElement = function (element) {
+  element.classList.add('hidden');
 };
 
 var similarListElement = document.querySelector('.setup-similar-list');
